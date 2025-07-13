@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MobileNumbers.ae | Find Your Dream Mobile Number - VIP Numbers UAE</title>
+    <title>MOBILENUMBER.AE | Find Your Dream Mobile Number - VIP Numbers UAE</title>
     <meta name="description" content="Exclusive VIP mobile numbers in UAE. Find platinum, gold & silver numbers from Etisalat, Du & Virgin Mobile. Premium number broker in Dubai.">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -13,11 +13,44 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-blue: #007AFF;
+            --secondary-blue: #5AC8FA;
+            --accent-blue: #30D5C8;
+            --background-light: #FAFAFA;
+            --background-dark: #000000;
+            --card-light: #FFFFFF;
+            --card-dark: #1C1C1E;
+            --text-primary-light: #1D1D1F;
+            --text-primary-dark: #F2F2F7;
+            --text-secondary-light: #6E6E73;
+            --text-secondary-dark: #8E8E93;
+            --border-light: #E5E5E7;
+            --border-dark: #38383A;
+        }
+
+        [data-theme="light"] {
+            --background: var(--background-light);
+            --surface: var(--card-light);
+            --text-primary: var(--text-primary-light);
+            --text-secondary: var(--text-secondary-light);
+            --border: var(--border-light);
+        }
+
+        [data-theme="dark"] {
+            --background: var(--background-dark);
+            --surface: var(--card-dark);
+            --text-primary: var(--text-primary-dark);
+            --text-secondary: var(--text-secondary-dark);
+            --border: var(--border-dark);
+        }
+
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
-            color: #1a1a1a;
-            background: #fafbfc;
+            color: var(--text-primary);
+            background: var(--background);
+            transition: background 0.3s ease, color 0.3s ease;
         }
 
         .container {
@@ -28,9 +61,10 @@
 
         /* Header */
         header {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(var(--surface), 0.8);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid #e5e7eb;
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
             padding: 1rem 0;
             position: fixed;
             width: 100%;
@@ -46,23 +80,41 @@
         }
 
         .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #0066cc;
+            font-size: 1.5rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             text-decoration: none;
             letter-spacing: -0.5px;
         }
 
-        .logo span {
-            color: #64748b;
+        .theme-toggle {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--text-primary);
+        }
+
+        .theme-toggle:hover {
+            background: var(--primary-blue);
+            color: white;
+            transform: scale(1.1);
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
-            padding: 120px 0 80px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 50%, var(--accent-blue) 100%);
+            padding: 140px 0 100px;
             text-align: center;
-            color: #fff;
+            color: white;
             position: relative;
             overflow: hidden;
         }
@@ -74,8 +126,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M 60 0 L 0 0 0 60" fill="none" stroke="%23ffffff" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="1200" height="600" fill="url(%23grid)"/></svg>');
-            opacity: 0.3;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><radialGradient id="grad1" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:%23ffffff;stop-opacity:0.1" /><stop offset="100%" style="stop-color:%23ffffff;stop-opacity:0" /></radialGradient></defs><rect width="1200" height="600" fill="url(%23grad1)"/></svg>');
+            opacity: 0.6;
         }
 
         .hero-content {
@@ -85,7 +137,7 @@
 
         .hero-content h1 {
             font-size: 3.5rem;
-            font-weight: 800;
+            font-weight: 700;
             margin-bottom: 1.5rem;
             letter-spacing: -1px;
             animation: fadeInUp 1s ease-out;
@@ -112,7 +164,7 @@
         .btn {
             padding: 16px 32px;
             border: none;
-            border-radius: 12px;
+            border-radius: 50px;
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
@@ -121,47 +173,47 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
         .btn-primary {
-            background: #25d366;
-            color: #fff;
+            background: #25D366;
+            color: white;
         }
 
         .btn-primary:hover {
-            background: #20b358;
+            background: #20B358;
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
         }
 
         .btn-secondary {
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
             backdrop-filter: blur(10px);
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.25);
             transform: translateY(-2px);
         }
 
         /* Search & Filter Section */
         .search-section {
-            background: #fff;
-            padding: 60px 0;
-            margin-top: -40px;
+            background: var(--background);
+            padding: 80px 0;
+            margin-top: -60px;
             position: relative;
             z-index: 10;
         }
 
         .search-container {
-            background: #fff;
-            padding: 32px;
-            border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
-            border: 1px solid #e5e7eb;
+            background: var(--surface);
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border);
             max-width: 1000px;
             margin: 0 auto;
         }
@@ -175,27 +227,26 @@
 
         .search-input, .search-select {
             padding: 16px 20px;
-            border: 2px solid #e5e7eb;
+            border: 1px solid var(--border);
             border-radius: 12px;
             font-size: 1rem;
             transition: all 0.3s ease;
-            background: #fafbfc;
-            color: #1a1a1a;
+            background: var(--surface);
+            color: var(--text-primary);
         }
 
         .search-input:focus, .search-select:focus {
             outline: none;
-            border-color: #0066cc;
-            background: #fff;
-            box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.1);
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 4px rgba(0, 122, 255, 0.1);
         }
 
         .search-btn {
             padding: 16px 32px;
-            background: #0066cc;
-            color: #fff;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: white;
             border: none;
-            border-radius: 12px;
+            border-radius: 50px;
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
@@ -204,19 +255,18 @@
             align-items: center;
             gap: 8px;
             justify-content: center;
-            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
+            box-shadow: 0 4px 20px rgba(0, 122, 255, 0.3);
         }
 
         .search-btn:hover {
-            background: #0052a3;
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 102, 204, 0.3);
+            box-shadow: 0 8px 30px rgba(0, 122, 255, 0.4);
         }
 
         /* Numbers Grid */
         .numbers-section {
             padding: 80px 0;
-            background: #fafbfc;
+            background: var(--background);
         }
 
         .section-title {
@@ -224,7 +274,7 @@
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 3rem;
-            color: #1a1a1a;
+            color: var(--text-primary);
             letter-spacing: -0.5px;
         }
 
@@ -236,10 +286,10 @@
         }
 
         .number-card {
-            background: #fff;
-            border-radius: 20px;
-            padding: 28px;
-            border: 1px solid #e5e7eb;
+            background: var(--surface);
+            border-radius: 24px;
+            padding: 32px;
+            border: 1px solid var(--border);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
@@ -252,22 +302,22 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, #0066cc, #00b4d8);
+            background: linear-gradient(90deg, var(--primary-blue), var(--secondary-blue));
         }
 
         .number-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            border-color: #0066cc;
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary-blue);
         }
 
         .provider-badge {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            background: #f1f5f9;
-            color: #64748b;
-            padding: 6px 12px;
+            background: rgba(var(--primary-blue), 0.1);
+            color: var(--primary-blue);
+            padding: 8px 16px;
             border-radius: 20px;
             font-size: 0.875rem;
             font-weight: 500;
@@ -277,7 +327,7 @@
         .number-display {
             font-size: 1.75rem;
             font-weight: 700;
-            color: #1a1a1a;
+            color: var(--text-primary);
             margin-bottom: 16px;
             text-align: center;
             letter-spacing: 1px;
@@ -295,41 +345,43 @@
         }
 
         .platinum {
-            background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
-            color: #475569;
+            background: linear-gradient(135deg, #E5E7EB, #9CA3AF);
+            color: #374151;
         }
 
         .gold {
-            background: linear-gradient(135deg, #fbbf24, #f59e0b);
-            color: #92400e;
+            background: linear-gradient(135deg, #FDE68A, #F59E0B);
+            color: #92400E;
         }
 
         .silver {
-            background: linear-gradient(135deg, #d1d5db, #9ca3af);
+            background: linear-gradient(135deg, #F3F4F6, #6B7280);
             color: #374151;
         }
 
         .price {
             font-size: 1.5rem;
             font-weight: 700;
-            color: #0066cc;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 20px;
             text-align: center;
         }
 
         .price span {
             font-size: 1rem;
-            color: #64748b;
+            color: var(--text-secondary);
             font-weight: 500;
         }
 
         .inquire-btn {
             width: 100%;
-            padding: 14px;
-            background: #25d366;
-            color: #fff;
+            padding: 16px;
+            background: #25D366;
+            color: white;
             border: none;
-            border-radius: 12px;
+            border-radius: 50px;
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
@@ -338,20 +390,21 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
         }
 
         .inquire-btn:hover {
-            background: #20b358;
+            background: #20B358;
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
         }
 
         /* Upload Section */
         .upload-section {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            color: #fff;
+            background: var(--surface);
+            color: var(--text-primary);
             padding: 80px 0;
+            border-top: 1px solid var(--border);
         }
 
         .upload-container {
@@ -364,14 +417,14 @@
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            color: #fff;
+            color: var(--text-primary);
             letter-spacing: -0.5px;
         }
 
         .upload-subtitle {
             font-size: 1.125rem;
             margin-bottom: 2.5rem;
-            color: #cbd5e1;
+            color: var(--text-secondary);
             max-width: 500px;
             margin-left: auto;
             margin-right: auto;
@@ -390,23 +443,22 @@
 
         .form-input {
             padding: 16px 20px;
-            border: 2px solid #334155;
+            border: 1px solid var(--border);
             border-radius: 12px;
-            background: #1e293b;
-            color: #fff;
+            background: var(--background);
+            color: var(--text-primary);
             font-size: 1rem;
             transition: all 0.3s ease;
         }
 
         .form-input::placeholder {
-            color: #94a3b8;
+            color: var(--text-secondary);
         }
 
         .form-input:focus {
             outline: none;
-            border-color: #0066cc;
-            background: #334155;
-            box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.1);
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 4px rgba(0, 122, 255, 0.1);
         }
 
         .file-upload {
@@ -423,8 +475,8 @@
 
         .file-upload-label {
             padding: 16px 20px;
-            background: #334155;
-            color: #cbd5e1;
+            background: var(--background);
+            color: var(--text-secondary);
             border-radius: 12px;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -432,20 +484,20 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            border: 2px solid #334155;
+            border: 1px solid var(--border);
         }
 
         .file-upload-label:hover {
-            background: #475569;
-            border-color: #0066cc;
+            background: var(--surface);
+            border-color: var(--primary-blue);
         }
 
         .submit-btn {
             padding: 16px 32px;
-            background: #0066cc;
-            color: #fff;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: white;
             border: none;
-            border-radius: 12px;
+            border-radius: 50px;
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
@@ -455,13 +507,12 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
+            box-shadow: 0 4px 20px rgba(0, 122, 255, 0.3);
         }
 
         .submit-btn:hover {
-            background: #0052a3;
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 102, 204, 0.3);
+            box-shadow: 0 8px 30px rgba(0, 122, 255, 0.4);
         }
 
         /* WhatsApp Floating Button */
@@ -469,11 +520,11 @@
             position: fixed;
             bottom: 24px;
             right: 24px;
-            background: #25d366;
-            color: #fff;
+            background: #25D366;
+            color: white;
             border-radius: 50px;
             padding: 16px 20px;
-            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
             z-index: 1000;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -486,16 +537,17 @@
         }
 
         .whatsapp-float:hover {
-            background: #20b358;
+            background: #20B358;
             transform: translateY(-2px);
-            box-shadow: 0 12px 32px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 12px 40px rgba(37, 211, 102, 0.5);
         }
 
         /* Footer */
         footer {
-            background: #0f172a;
-            color: #cbd5e1;
+            background: var(--surface);
+            color: var(--text-secondary);
             padding: 60px 0 20px;
+            border-top: 1px solid var(--border);
         }
 
         .footer-content {
@@ -506,20 +558,20 @@
         }
 
         .footer-section h3 {
-            color: #fff;
+            color: var(--text-primary);
             margin-bottom: 20px;
             font-weight: 600;
         }
 
         .footer-section p, .footer-section a {
-            color: #94a3b8;
+            color: var(--text-secondary);
             text-decoration: none;
             line-height: 1.7;
             transition: color 0.3s ease;
         }
 
         .footer-section a:hover {
-            color: #0066cc;
+            color: var(--primary-blue);
         }
 
         .footer-section .contact-item {
@@ -541,24 +593,25 @@
             justify-content: center;
             width: 44px;
             height: 44px;
-            background: #1e293b;
-            color: #cbd5e1;
+            background: var(--background);
+            color: var(--text-secondary);
             border-radius: 12px;
             transition: all 0.3s ease;
             font-size: 1.25rem;
+            border: 1px solid var(--border);
         }
 
         .social-links a:hover {
-            background: #0066cc;
-            color: #fff;
+            background: var(--primary-blue);
+            color: white;
             transform: translateY(-2px);
         }
 
         .footer-bottom {
             text-align: center;
             padding-top: 40px;
-            border-top: 1px solid #1e293b;
-            color: #64748b;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
         }
 
         .footer-bottom p {
@@ -611,7 +664,7 @@
             }
             
             .hero {
-                padding: 100px 0 60px;
+                padding: 120px 0 80px;
             }
             
             .section-title {
@@ -633,7 +686,7 @@
             }
             
             .number-card {
-                padding: 20px;
+                padding: 24px;
             }
             
             .whatsapp-float {
@@ -641,13 +694,6 @@
                 right: 16px;
                 padding: 12px 16px;
             }
-        }
-
-        /* Modern glassmorphism effect */
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.18);
         }
 
         /* Subtle animations for cards */
@@ -663,12 +709,15 @@
         .number-card:nth-child(6) { animation-delay: 0.6s; }
     </style>
 </head>
-<body>
+<body data-theme="light">
     <!-- Header -->
     <header>
         <div class="container">
             <div class="header-content">
-                <a href="#" class="logo">Mobile<span>Numbers</span>.ae</a>
+                <a href="#" class="logo">MOBILENUMBER.AE</a>
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <i class="fas fa-moon"></i>
+                </button>
             </div>
         </div>
     </header>
@@ -818,65 +867,4 @@
                 <p class="upload-subtitle">Looking for something specific? Let us know your desired number and we'll find it for you.</p>
                 <form class="upload-form">
                     <div class="form-group">
-                        <input type="text" class="form-input" placeholder="Full Name" required>
-                        <input type="email" class="form-input" placeholder="Email Address" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" class="form-input" placeholder="WhatsApp Number" required>
-                        <input type="text" class="form-input" placeholder="Desired Number" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-input" placeholder="Budget (Optional)">
-                        <div class="file-upload">
-                            <input type="file" id="file-upload" accept=".jpg,.jpeg,.png,.pdf">
-                            <label for="file-upload" class="file-upload-label">
-                                <i class="fas fa-paperclip"></i> Upload Document (Optional)
-                            </label>
-                        </div>
-                    </div>
-                    <button type="submit" class="submit-btn">
-                        <i class="fas fa-paper-plane"></i> Send Request
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- WhatsApp Floating Button -->
-    <a href="#" class="whatsapp-float" onclick="openWhatsApp()">
-        <i class="fab fa-whatsapp"></i> Chat Now
-    </a>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>About MobileNumbers.ae</h3>
-                    <p>Your trusted gateway to unique mobile numbers in the UAE. We specialize in premium mobile numbers, connecting you with exclusive, prestigious numbers that make a statement.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact Information</h3>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <p>info@mobilenumbers.ae</p>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-whatsapp"></i>
-                        <p>+971 50 123 4567</p>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <p>Dubai, United Arab Emirates</p>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h3>Follow Us</h3>
-                    <div class="social-links">
-                        <a href="#" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" aria-label="WhatsApp">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="#" aria
+                        <input type="text" class="form-input" placeholder="Full Name
